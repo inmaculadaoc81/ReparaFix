@@ -30,10 +30,12 @@ REVISIÓN (fixes aplicados):
 - Google Analytics: no existía. Añadido G-NZYVR6D6LV en las 51 páginas.
 - H1 de portada reescrito, corto y directo (estilo Isra Bravo, sin
   nombrar una marca concreta porque el sitio cubre ordenadores y
-  smartwatch de múltiples fabricantes): "Tu ordenador o smartwatch
-  falla. ¿Merece la pena arreglarlo?" (9 palabras). Tamaño del H1
-  aumentado: clamp(44-72px) → clamp(50-80px) en escritorio, 39px → 44px
-  en móvil.
+  smartwatch de múltiples fabricantes). Tamaño del H1 aumentado:
+  clamp(44-72px) → clamp(50-80px) en escritorio, 39px → 44px en móvil.
+  Iterado en varios commits posteriores (afirmativo, sin
+  interrogación, sin condicionales, sin "Descubre") hasta el texto
+  final actual: "Ordenador o smartwatch averiado. Aquí lo reparamos
+  sin complicaciones."
 
 CAMBIO IMPORTANTE — formulario de contacto:
 api/contacto.js usaba la API de Gmail vía OAuth2 (paquete "googleapis",
@@ -57,3 +59,11 @@ Las variables antiguas (GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET,
 GOOGLE_REFRESH_TOKEN, GOOGLE_EMAIL) ya no se usan y pueden eliminarse de
 Vercel. package.json actualizado: quitada la dependencia "googleapis",
 añadida "nodemailer".
+
+REVISIÓN ADICIONAL (esta pasada — auditoría completa):
+- H1, schema.org (teléfono de la caja de información, correcto), og:*,
+  canonical (https), GA y banner de cookies en las 51 páginas
+  (verificado por conteo), borde del chat y package.json ya estaban
+  todos correctos. Solo se ha actualizado este README, que documentaba
+  una versión anterior y ya superada del H1. No se ha tocado ningún
+  archivo del sitio.
