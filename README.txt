@@ -1,5 +1,46 @@
 REPARAFIX — SERVICIO TÉCNICO ORDENADORES Y SMARTWATCH (MADRID)
 
+REVISIÓN ADICIONAL (a petición del cliente):
+- BUG REAL — "no tiene para agendar citas": no existía ninguna sección
+  de Cal.com. Añadida en index.html, entre la sección "proof" (Google
+  Business/YouTube) y "Ubicación": "Reserva una cita de 30 minutos"
+  con el iframe compartido de la familia
+  (https://cal.com/kelatos/30min?embed=true&theme=light), 720px de
+  alto en escritorio y 760px en móvil. Añadido enlace "Pedir cita" al
+  menú en las 49 páginas que tienen nav completo (todas menos
+  aviso-legal.html y politica-privacidad.html, que solo tienen un
+  enlace "← Volver").
+- BUG REAL — festivos: el horario decía "Sábados y domingos: cerrado",
+  sin mencionar festivos. Corregido a "Sábados, domingos y días
+  festivos estamos cerrados".
+- Revisado el enlace de política de privacidad del formulario:
+  enlazaba a la página legal local (/politica-privacidad.html) en vez
+  del enlace estándar de la familia. Corregido a
+  https://kelatos.com/privacy-policy/, resaltado en azul. De paso, esa
+  página local (/politica-privacidad.html, que se mantiene enlazada
+  desde el footer) tenía una afirmación desactualizada — "El
+  formulario se procesa mediante... Google Workspace" — que ya no es
+  cierta desde que este mismo README documenta el cambio a SMTP +
+  nodemailer; corregida.
+- BUG REAL, PERO NO DE CÓDIGO — "no funciona el formulario":
+  diagnosticado en directo contra https://pc112.com.es/api/contacto,
+  que devuelve una página 404 de WordPress (con cabeceras Yoast SEO),
+  es decir, el dominio actualmente NO apunta a este despliegue de
+  Vercel, sino a otra instalación distinta. El código en sí está
+  correcto (script.js llama a /api/contacto, que coincide con
+  api/contacto.js; mismo patrón SMTP ya documentado abajo). Hay que
+  revisar en Vercel (Project Settings → Domains) o en el proveedor del
+  dominio que pc112.com.es esté correctamente apuntado a este
+  proyecto.
+- PENDIENTE DE ACLARAR — "reducir texto de Banner": revisado todo el
+  sitio (cabecera, hero, franjas de aviso, banner de cookies, footer)
+  y no se ha identificado con certeza a qué banner se refiere el
+  cliente; ninguno de los textos visibles destaca por ser
+  especialmente largo salvo el banner de cookies, que usa el mismo
+  texto estándar que el resto de la familia (no se ha tocado, para no
+  desviarse del estándar sin confirmación). Pendiente de que el
+  cliente indique de qué banner se trata, idealmente con una captura.
+
 Sitio multipágina grande: home + aviso legal + política de privacidad +
 23 páginas de servicio (/servicios/, ordenadores y smartwatch) + 24
 páginas de modelo/marca (/modelos/) = 51 páginas en total. NO se ha
