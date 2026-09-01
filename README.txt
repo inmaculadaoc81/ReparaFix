@@ -108,3 +108,43 @@ REVISIÓN ADICIONAL (esta pasada — auditoría completa):
   todos correctos. Solo se ha actualizado este README, que documentaba
   una versión anterior y ya superada del H1. No se ha tocado ningún
   archivo del sitio.
+
+REVISIÓN ADICIONAL (checklist unificado de la familia, 51 páginas — a petición del cliente, repo 45/48):
+- Verificado: enlace de Cal.com ya actualizado con attendeePhoneNumber
+  y overlayCalendar.
+- Verificado: el correo soporte@kelatos.com no aparece visible en
+  ninguna página.
+- BUG REAL — el mensaje prellenado de WhatsApp ("¡Hola! ¡Deseo un
+  diagnóstico y presupuesto!") no incluía el nombre de la marca en
+  ninguna de las 49 páginas que lo usan (147 apariciones). Corregido a
+  "¡Hola ReparaFix! ¡Deseo un diagnóstico y presupuesto!" en todas.
+- Verificado: el menú móvil (#mainMenu / .menu-toggle) ya se cerraba
+  correctamente al pulsar un enlace, vía script.js compartido.
+- Verificado: sin iconos ni imágenes con proporciones fijas
+  incorrectas.
+- Verificado: el H1 en móvil ya está en 48px (@media, .hero h1); el
+  clamp base también tiene un mínimo de 50px, por encima del estándar.
+- BUG REAL — botones del hero (.action) con border-radius de 20px, no
+  completamente redondos. Aumentado a border-radius:999px. Los tres
+  botones (wa/pickup/call) ya tenían estados hover que oscurecen el
+  fondo; no requerían cambios ahí.
+- BUG REAL — no existía franja de aviso de servicio técnico
+  independiente (solo un eyebrow de texto en el hero, "SERVICIO
+  TÉCNICO INDEPENDIENTE · MADRID"). Añadida la franja estándar de la
+  familia ("Somos un servicio técnico independiente...") en las 49
+  páginas que comparten cabecera — aplica porque este repo repara
+  equipos de marcas concretas (Acer, Asus, Dell, HP, Lenovo, MSI,
+  Gigabyte, Razer, Dynabook/Toshiba, Surface, Apple Watch, Galaxy
+  Watch, etc.). Nota: se colocó como hermano justo después de
+  </header> en vez de dentro de él, porque .header usa
+  display:flex;height:80px fijo (a diferencia del resto de la
+  familia) y el menú móvil desplegable depende de esa altura fija
+  (top:80px en @media max-width:980px); meterla dentro del header
+  habría roto ese cálculo o exigido reescribir el layout del header.
+  Visualmente queda igual (debajo del menú), pero no se mantiene
+  "sticky" al hacer scroll como sí ocurre en otros repos de la
+  familia.
+- Verificado: los "badge" de "DIAGNÓSTICO GRATUITO"/"DIAGNÓSTICO CON
+  COSTE" están dentro de una sección de comparación más abajo en la
+  página, no bajo el H1; no es el patrón de franja de insignias de la
+  familia Dyson, no aplica la reubicación.
