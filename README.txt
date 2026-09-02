@@ -148,3 +148,43 @@ REVISIÓN ADICIONAL (checklist unificado de la familia, 51 páginas — a petici
   COSTE" están dentro de una sección de comparación más abajo en la
   página, no bajo el H1; no es el patrón de franja de insignias de la
   familia Dyson, no aplica la reubicación.
+
+CONVERSIÓN A ONE-PAGE (a petición del cliente):
+Este repositorio era multipágina: servicios/*.html (24 páginas) y
+modelos/*.html (24 páginas) = 48 páginas de catálogo, más index.html,
+aviso-legal.html y politica-privacidad.html = 51 en total. Convertido
+a una sola página de catálogo (index.html), mismo patrón que
+ToshibaTech (procesado justo antes):
+- Eliminadas las 48 páginas de servicios/ y modelos/. No se ha
+  migrado su contenido — el home ya tenía una sección "Servicios" (6
+  averías de ejemplo, no las 24) y una sección "Dos especialidades"
+  con la columna "Marcas y formatos" (resumen de marcas/tipos, sin
+  enlaces por modelo individual), así que la presencia general se
+  mantiene, solo desaparecen las páginas dedicadas a cada avería/
+  modelo concreto.
+- Igual que en ToshibaTech, esas secciones NO tenían id propio.
+  Añadidos id="servicios" a la sección de servicios e id="modelos" a
+  <section class="section dual">, para poder enlazarlas desde el
+  menú.
+- CONSERVADAS aviso-legal.html y politica-privacidad.html: páginas
+  legales propias del sitio, no contenido de catálogo/SEO. No se han
+  tocado ni movido.
+- Menú: los desplegables "Servicios" (24 enlaces) y "Modelos" (24
+  enlaces) se sustituyeron por un enlace único cada uno → /#servicios
+  y /#modelos. Este repo usa un único <nav id="mainMenu"> reutilizado
+  para escritorio y móvil (igual que ToshibaTech), así que un solo
+  cambio cubre ambas versiones.
+- Los 6 enlaces de la sección "Servicios" (antes /servicios/*.html) y
+  el enlace "Explorar equipos y marcas →" (antes /modelos/portatiles)
+  ahora apuntan a /#contacto.
+- Añadido middleware.mjs (mismo patrón que el resto de la familia),
+  con lista blanca para /aviso-legal y /politica-privacidad. Añadida
+  la dependencia "@vercel/functions" en package.json. NOTA
+  IMPORTANTE: se comprobó en producción que este mismo patrón, ya
+  usado en ~17 repos de la familia, no está redirigiendo realmente en
+  Vercel (da 404 en vez de 301) — pendiente de investigar la causa
+  raíz como tarea aparte. Se mantiene por consistencia; documentado
+  también en el propio middleware.mjs.
+- sitemap.xml reducido a 3 <url>: home, aviso-legal y
+  politica-privacidad (antes no incluía ninguna de las dos páginas
+  legales; corregido de paso).
