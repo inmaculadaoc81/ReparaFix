@@ -188,3 +188,14 @@ ToshibaTech (procesado justo antes):
 - sitemap.xml reducido a 3 <url>: home, aviso-legal y
   politica-privacidad (antes no incluía ninguna de las dos páginas
   legales; corregido de paso).
+
+BLOG (/blog):
+- Los artículos NO viven en este repositorio: los genera y aprueba el agente
+  SEO de Kelatos (Agentes V2 → organización «ReparaFix», clave reparafix) y se
+  leen en vivo de la API pública de Kelatos, sin token:
+  https://db.affirmatechnology.com/kelatos-api/publico/blog?org=reparafix
+- api/blog.js + lib/blog.js (ESM) generan /blog y /blog/<slug> en el servidor.
+- api/sitemap.js genera /sitemap.xml con la home, las páginas legales, /blog y
+  cada artículo publicado (se eliminó el sitemap.xml estático).
+- Estilos en assets/blog.css. Enlace «Blog» en el menú y en el pie.
+- Diagnóstico: gratuito solo en ordenadores; en smartwatch tiene coste.
