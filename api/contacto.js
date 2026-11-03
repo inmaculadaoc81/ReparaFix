@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "./_correo.js";
 
 const clean = (value, max = 2000) => String(value ?? '').replace(/[<>]/g, '').trim().slice(0, max);
 const emailOk = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
