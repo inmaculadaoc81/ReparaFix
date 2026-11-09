@@ -39,8 +39,9 @@ export default async function handler(req, res) {
       return res.status(500).json({ ok: false, code: 'MISSING_SMTP_ENV' });
     }
 
-    const { nombre, telefono, email, modelo, mensaje, website } = req.body || {};
+    const { nombre, telefono, email, modelo, mensaje, website, ts } = req.body || {};
     if (website) return res.status(200).json({ ok: true });
+    if (!ts || Date.now() - Number(ts) < 2000) return res.status(200).json({ ok: true });
 
     const n = clean(nombre, 80), t = clean(telefono, 30), e = clean(email, 120), mo = clean(modelo, 120), msg = clean(mensaje, 2000);
     if (!n || !t || !e || !msg || !emailOk(e)) return res.status(400).json({ ok: false, code: 'INVALID_FORM_DATA' });
